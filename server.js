@@ -6,6 +6,7 @@ npm i knex mysql
 npm i knex sqlite3
 npm i express
 npm i faker
+npm i normalizr
 */
 
 const express = require('express')
@@ -56,7 +57,7 @@ io.on('connection', async(socket) => {
 })
 
 /* Mostar productos aleatorios */
-//routerTest.get('/', prodAletorios)
+routerTest.get('/', prodAletorios)
 
 /*Server*/
 const PORT = process.env.PORT || 8080
