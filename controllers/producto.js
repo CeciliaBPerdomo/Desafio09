@@ -1,8 +1,8 @@
-const { listaProductos, guardarProducto } = require('../db/producto')
+const { listarProductos, guardarProducto } = require('../db/producto')
 
 /* Muestra los productos */
 exports.listarProductos = async (req, res) => {
-    let productos = await listaProductos()
+    let productos = await listarProductos()
     res.json(productos)
 }
 
