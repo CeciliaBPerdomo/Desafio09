@@ -24,7 +24,7 @@ const routerProducto = express.Router()
 const routerTest = express.Router()
 const { listarProductos, agregarProducto } = require('./controllers/producto')
 const mensajes = require('./controllers/mensajes')
-const prodAletorios = require('./controllers/testprod')
+const { prodAletorios } = require('./controllers/testprod')
 //const { knexMensajes } = require('./db/config')
 
 app.use(bodyParser.urlencoded())
@@ -61,6 +61,6 @@ routerTest.get('/', prodAletorios)
 /*Server*/
 const PORT = process.env.PORT || 8080
 const srv = server.listen(PORT, () => {
-    console.log(`Servidor Http con WebSockets escuchando en el puerto ${srv.address().port}`)
+    console.log(`Servidor Http escuchando en el puerto ${srv.address().port}`)
 })
 srv.on('error', error => console.log(`Error en el servidor ${error}`))
