@@ -21,3 +21,11 @@ const knexMensajes = require('knex')({
 module.exports = {
     knexProducto, knexMensajes
 }
+
+const daosMongoDB = {
+    mongoDB: {
+        mensajes: async() => import('./DAO/daoMensajesDB')
+    }
+}
+
+export default daosMongoDB
