@@ -1,8 +1,10 @@
 const faker = require('@faker-js/faker')
 faker.locale = 'es'
 
-exports.prodAleatorios = (cant) => {
+
+exports.prodAleatorios = () => {
     const prod = []
+    let cant = 5
     for(let i = 0; i < cant; i++){
         prod.push(crearCombinaciones(getNextId))
     }
