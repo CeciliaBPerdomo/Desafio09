@@ -24,7 +24,7 @@ const io = require('socket.io')(server)
 const routerProducto = express.Router()
 const routerTest = express.Router()
 const { listarProductos, agregarProducto } = require('./controllers/producto')
-const mensajes = require('./controllers/mensajes')
+const { mensajes } = require('./controllers/mensajes')
 const { prodAleatorios } = require('./controllers/testprod')
 //const { knexMensajes } = require('./db/config')
 

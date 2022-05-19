@@ -15,7 +15,7 @@ const mensj = new mongoose.Schema({
 
 const msj = mongoose.model('mensajes', mensj)
 
-export default class Mensajes {
+class Mensajes {
     constructor(conexion, tabla) {}
 
     guardar = async (mensaje) => {
@@ -31,3 +31,5 @@ export default class Mensajes {
         }
     }
 }
+
+module.exports = { Mensajes }

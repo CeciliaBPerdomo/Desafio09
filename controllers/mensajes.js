@@ -12,19 +12,19 @@ exports.mostrarTodos = async () => {
 */
 const io = require('../server.js')
 const { normalize, schema } = require('normalizr')
-const Mensajes = require('../db/DAO/daoMensajesDB')
+const { Mensajes } = require('../db/DAO/daoMensajesDB')
 
 const mensajes = new Mensajes()
 
-export const newMens = msj => {
+function newMens( msj) {
     mensajes.save(msj)
     io.sockets.emit('nuevo mensaje', msj)
 }
 
-export const mostrarTodos = async () => await mensajes.mostrarTodos()
+function mostrarTodos(){ async() => { await mensajes.mostrarTodos()}}
 
 /* Normalizar */
-export const normalizedMongo = (data) => {
+function normalizedMongo(data){
     const autoresSchema = new schema.Entity('autores')
     const msjsSchema = new schema.Entity('mensajes', {autor: autoresSchema}, {id: '_id'})
     const arcSchema = [msjsSchema]
@@ -40,3 +40,5 @@ export const normalizedMongo = (data) => {
 
     return {normalized, porctCompr }
 }
+
+module.exports = { newMens, mostrarTodos, normalizedMongo }
