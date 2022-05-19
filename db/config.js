@@ -18,9 +18,7 @@ const knexMensajes = require('knex')({
     useNullAsDefault: true    
 })
 
-module.exports = {
-    knexProducto, knexMensajes
-}
+
 
 const daosMongoDB = {
     mongoDB: {
@@ -28,4 +26,8 @@ const daosMongoDB = {
     }
 }
 
-export default daosMongoDB
+module.exports = {
+    knexProducto, knexMensajes, daosMongoDB
+}
+
+//export default daosMongoDB

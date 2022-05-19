@@ -25,7 +25,7 @@ const routerProducto = express.Router()
 const routerTest = express.Router()
 const { listarProductos, agregarProducto } = require('./controllers/producto')
 const mensajes = require('./controllers/mensajes')
-const { prodAletorios } = require('./controllers/testprod')
+const { prodAleatorios } = require('./controllers/testprod')
 //const { knexMensajes } = require('./db/config')
 
 app.use(bodyParser.urlencoded())
@@ -57,7 +57,7 @@ io.on('connection', async(socket) => {
 })
 
 /* Mostar productos aleatorios */
-routerTest.get('/', prodAletorios)
+routerTest.get('/', prodAleatorios)
 
 /*Server*/
 const PORT = process.env.PORT || 8080

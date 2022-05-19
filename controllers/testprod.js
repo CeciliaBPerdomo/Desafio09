@@ -1,17 +1,17 @@
-const faker = require('@faker-js/faker')
+const { faker } = require('@faker-js/faker')
 faker.locale = 'es'
 
 
-exports.prodAleatorios = () => {
+const prodAleatorios = (req, res) => {
     const prod = []
     let cant = 5
     for(let i = 0; i < cant; i++){
-        prod.push(crearCombinaciones(getNextId))
+        prod.push(crearCombinaciones(getNextId()))
     }
-    return prod
+    res.json(prod)
 }
 
-let id = 1 
+let id = 1
 function getNextId(){
     return id++
 }
@@ -19,8 +19,10 @@ function getNextId(){
 function crearCombinaciones(id) {
     return {
         id,
-        nombre: faker.ecommerce.product(),
-        precio: faker.ecommerce.price(),
+        nombre: faker.commerce.product(),
+        precio: faker.commerce.price(),
         foto: faker.image.technics()
     }
 }
+
+module.exports = { prodAleatorios }
